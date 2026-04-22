@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks - Project Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo"><i class="fas fa-rocket"></i> TrackNova</div>
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html"><i class="fas fa-th-large"></i> Dashboard</a></li>
+                    <li><a href="projects.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                    <li><a href="tasks.html" class="active"><i class="fas fa-check-double"></i> Tasks</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="profile.html"><i class="fas fa-user-circle"></i> Profile</a>
+                <a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-navbar" style="border-bottom: 2px solid #f1f5f9;">
+                <div class="header-info">
+                    <h1 style="margin-bottom: 5px;">Website Redesign</h1>
+                    <span class="breadcrumb" style="font-size: 0.85rem; color: #94a3b8;">
+                        Projects / <span style="color: var(--color-primary); font-weight: 600;">Website Redesign</span> / Tasks
+                    </span>
+                </div>
+                <div class="task-actions">
+                    <div style="text-align: right; margin-right: 20px; display: inline-block; vertical-align: middle;">
+                        <div style="font-size: 0.75rem; font-weight: bold; color: #64748b; margin-bottom: 4px;">PROJECT PROGRESS: 33%</div>
+                        <div style="width: 120px; height: 6px; background: #e2e8f0; border-radius: 10px; overflow: hidden;">
+                            <div style="width: 33%; height: 100%; background: var(--color-primary);"></div>
+                        </div>
+                    </div>
+                    <button class="btn" style="width: auto; padding: 10px 20px;"><i class="fas fa-plus"></i> New Task</button>
+                </div>
+            </header>
+
+            <section class="task-interface" style="padding: 25px; background: #f8fafc;">
+                <div class="task-input-card" style="display: flex; align-items: center; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e2e8f0; margin-bottom: 30px;">
+                    <i class="fas fa-keyboard" style="color: #cbd5e1; margin-right: 15px;"></i>
+                    <input type="text" placeholder="What needs to be done? (Press Enter to add)" id="quick-task-input" style="flex: 1; border: none; outline: none; margin-bottom: 0; font-size: 1rem;">
+                    
+                    <div style="display: flex; gap: 10px; align-items: center; border-left: 1px solid #e2e8f0; padding-left: 20px;">
+                        <label style="margin-bottom: 0; font-size: 0.8rem; color: #94a3b8;">PRIORITY</label>
+                        <select id="task-priority" style="width: auto; margin-bottom: 0; padding: 5px 10px; border: 1px solid #e2e8f0; cursor: pointer;">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                        <button class="btn" style="width: auto; padding: 8px 15px; border-radius: 6px;">Add</button>
+                    </div>
+                </div>
+
+                
+                <div class="kanban-board" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    
+                    <div class="kanban-column" style="background: #f1f5f9; padding: 15px; border-radius: 16px; border: 1px solid #e2e8f0;">
+                        <div class="column-header" style="display: flex; justify-content: space-between; align-items: center; padding: 10px; margin-bottom: 15px;">
+                            <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: #64748b;">To-Do</h3>
+                            <span style="background: white; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; color: var(--color-primary); box-shadow: 0 2px 4px rgba(0,0,0,0.05);">2</span>
+                        </div>
+                        
+                        <div class="task-items-container">
+                            <div class="task-card-v2 high" style="position: relative; overflow: hidden;">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                                    <span style="font-size: 0.65rem; font-weight: 800; color: #ef4444; background: #fee2e2; padding: 2px 6px; border-radius: 4px;">URGENT</span>
+                                    <i class="fas fa-grip-vertical" style="color: #cbd5e1; cursor: grab;"></i>
+                                </div>
+                                <p style="font-weight: 500; margin-bottom: 15px;">Design Hero Section UI</p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 10px;">
+                                    <span style="font-size: 0.7rem; color: #94a3b8;"><i class="far fa-clock"></i> Due tomorrow</span>
+                                    <div style="display: flex; gap: 8px;">
+                                        <button style="border: none; background: none; color: #cbd5e1; cursor: pointer;"><i class="far fa-edit"></i></button>
+                                        <button class="btn-icon-delete" style="background: none; border: none; color: #cbd5e1; cursor: pointer;"><i class="far fa-trash-alt"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="kanban-column" style="background: #eff6ff; padding: 15px; border-radius: 16px; border: 1px solid #dbeafe;">
+                        <div class="column-header" style="display: flex; justify-content: space-between; align-items: center; padding: 10px; margin-bottom: 15px;">
+                            <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: #1e40af;">In Progress</h3>
+                            <span style="background: #2563eb; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; color: white;">1</span>
+                        </div>
+                        <div class="task-items-container">
+                             <div class="task-card-v2 medium">
+                                <p style="font-weight: 500; margin-bottom: 15px;">Write landing page copy</p>
+                                <div style="display: flex; align-items: center; gap: 5px;">
+                                    <img src="https://via.placeholder.com/20" style="border-radius: 50%;" alt="User">
+                                    <span style="font-size: 0.7rem; color: #64748b;">Assigned to You</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="kanban-column" style="background: #f1f5f9; padding: 15px; border-radius: 16px; opacity: 0.8;">
+                        <div class="column-header" style="display: flex; justify-content: space-between; align-items: center; padding: 10px; margin-bottom: 15px;">
+                            <h3 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: #64748b;">Completed</h3>
+                            <span style="background: white; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; color: var(--color-success);">0</span>
+                        </div>
+                        <div style="text-align: center; padding: 40px 20px; border: 2px dashed #cbd5e1; border-radius: 12px; margin-top: 10px;">
+                            <i class="fas fa-check-circle" style="font-size: 2rem; color: #cbd5e1; margin-bottom: 10px;"></i>
+                            <p style="color: #94a3b8; font-size: 0.8rem;">Drop tasks here to finish them</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

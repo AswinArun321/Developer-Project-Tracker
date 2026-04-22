@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - TrackNova</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo"><i class="fas fa-rocket"></i> TrackNova</div>
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html"><i class="fas fa-th-large"></i> Dashboard</a></li>
+                    <li><a href="projects.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                    <li><a href="tasks.html"><i class="fas fa-check-double"></i> Tasks</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="profile.html" class="active"><i class="fas fa-user-circle"></i> Profile</a>
+                <a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-navbar">
+                <h1>User Profile</h1>
+                <div class="user-info-mini" style="display: flex; align-items: center; gap: 10px;">
+                    <img src="https://via.placeholder.com/40" alt="Avatar" class="mini-avatar" id="nav-avatar" style="border-radius: 50%;">
+                    <span style="font-weight: 600;">Alex Developer</span>
+                </div>
+            </header>
+
+            <section class="profile-container" style="padding: 30px; max-width: 900px;">
+                
+                <div class="profile-card header-card" style="display: flex; align-items: center; gap: 40px; margin-bottom: 25px;">
+                    <div class="avatar-upload" style="position: relative;">
+                        <div class="avatar-preview">
+                            <img src="https://via.placeholder.com/150" id="imagePreview" alt="User Avatar" style="width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 5px solid #f1f5f9;">
+                        </div>
+                        <div class="avatar-edit" style="position: absolute; bottom: 0; right: 0;">
+                            <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" style="display: none;" />
+                            <label for="imageUpload" class="btn" style="padding: 5px 12px; font-size: 0.75rem; border-radius: 20px; width: auto;">✎ Update Photo</label>
+                        </div>
+                    </div>
+                    <div class="profile-intro">
+                        <h2 style="text-align: left; margin-bottom: 5px;">Alex Developer</h2>
+                        <p style="color: #64748b;">Full Stack Developer • Joined April 2026</p>
+                    </div>
+                </div>
+
+                <div class="profile-card settings-card">
+                    <h3 style="margin-bottom: 20px; color: var(--color-dark);"><i class="fas fa-cog"></i> Account Settings</h3>
+                    <form id="profile-form">
+                        <div class="input-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="input-group">
+                                <label for="profile-name">Full Name</label>
+                                <input type="text" id="profile-name" value="Alex Developer">
+                            </div>
+                            <div class="input-group">
+                                <label for="profile-email">Email Address</label>
+                                <input type="email" id="profile-email" value="alex@example.com">
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="profile-bio">Short Bio</label>
+                            <textarea id="profile-bio" rows="4" placeholder="Tell us about yourself..." style="width: 100%; border-radius: 8px; border: 1px solid #ccc; padding: 12px; font-family: inherit;"></textarea>
+                        </div>
+
+                        <div style="text-align: right;">
+                            <button type="submit" class="btn" style="width: auto; padding: 12px 30px;">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('imageUpload').addEventListener('change', function(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const output = document.getElementById('imagePreview');
+                const navOutput = document.getElementById('nav-avatar');
+                output.src = reader.result;
+                navOutput.src = reader.result;
+            };
+            if(event.target.files[0]) {
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        });
+    </script>
+</body>
+</html>

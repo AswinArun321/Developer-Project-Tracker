@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Project Tracker</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body class="auth-page">
+    <div id="particles-js"></div> 
+
+    <div class="auth-wrapper">
+        <div class="auth-brand">
+            <div class="brand-logo">
+                <span class="logo-icon"></span> 
+                TrackNova
+            </div>
+            
+            <div class="brand-content">
+                <h1>Where projects stay on track.</h1>
+                <p>Plan, track and deliver projects in one place.</p>
+            </div>
+        </div>
+
+        <div class="auth-form-container">
+            <div class="login-container">
+                <h2>Welcome Back</h2>
+
+                <form>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="username@gmail.com" required>
+
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+
+                    <button type="submit" class="btn">Login</button>
+                </form>
+
+                <p class="signup-link">Don't have an account? <a href="signup.html">sign up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+    "particles": {
+        "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#034159" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.3 },
+        "size": { "value": 3, "random": true },
+        "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#034159",
+            "opacity": 0.2,
+            "width": 1
+        },
+        "move": { 
+            "enable": true, 
+            "speed": 0.5,           /* CRITICAL: Very slow base speed makes them feel floating */
+            "direction": "none", 
+            "random": true, 
+            "straight": false, 
+            "out_mode": "out", 
+            "bounce": false 
+        }
+    },
+    "interactivity": {
+        "detect_on": "canvas",
+        "events": { 
+            "onhover": { 
+                "enable": true, 
+                "mode": "bubble"    /* Changed to 'bubble' for that antigravity expansion look */
+            },
+            "onclick": { "enable": true, "mode": "push" },
+            "resize": true 
+        },
+        "modes": {
+            "bubble": { 
+                "distance": 200, 
+                "size": 6,          /* Particles 'grow' when you get near them */
+                "duration": 2, 
+                "opacity": 0.8 
+            },
+            "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } }
+        }
+    },
+    "retina_detect": true
+});
+    </script>
+</body>
+</html>
